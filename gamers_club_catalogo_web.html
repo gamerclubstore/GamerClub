@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gamers Club PRO+</title>
+<style>
+body{margin:0;font-family:Arial;background:radial-gradient(circle,#1a0033,#0b0014);color:#e0ccff}
+header{text-align:center;padding:20px}
+.logo{width:200px;filter:drop-shadow(0 0 20px #a200ff)}
+h1{text-shadow:0 0 10px #a200ff}
+
+.topbar{display:flex;justify-content:space-between;padding:10px 20px}
+input,select{padding:5px;margin:5px}
+
+.container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:20px}
+.card{background:#1a0033;border:1px solid #7a00ff;border-radius:15px;padding:15px;transition:.3s}
+.card:hover{transform:scale(1.05);box-shadow:0 0 25px #a200ff}
+.card img{width:100%;border-radius:10px}
+.price{color:#c77dff}
+button{background:linear-gradient(45deg,#6a00ff,#b300ff);border:none;padding:10px;border-radius:10px;color:#fff;cursor:pointer}
+
+#cart{position:fixed;top:10px;right:10px;background:#1a0033;padding:10px;border-radius:10px}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;padding:15px;border-radius:50%}
+
+.admin{position:fixed;left:10px;top:60px;background:#1a0033;padding:10px;border-radius:10px;width:250px;display:none}
+.dashboard{position:fixed;left:10px;bottom:10px;background:#1a0033;padding:10px;border-radius:10px;width:250px}
+
+.badge{padding:3px 8px;border-radius:8px;font-size:12px}
+.disponible{background:#00c853}
+.prox{background:#ff9100}
+
+</style>
+</head>
+<body>
+
+<header>
+<img src="logo.png" class="logo">
+<h1>Gamers Club</h1>
+</header>
+
+<div class="topbar">
+<input id="search" placeholder="Buscar juego..." onkeyup="render()">
+<select id="filter" onchange="render()">
+<option value="">Todas</option>
+<option>FPS</option>
+<option>Acción</option>
+<option>Aventura</option>
+</select>
+<button onclick="login()">Admin</button>
+</div>
+
+<div id="cart">🛒 <span id="cart-count">0</span></div>
+
+<div class="admin" id="adminPanel">
+<h3>Panel Admin</h3>
+<input id="name" placeholder="Nombre">
+<input id="price" placeholder="Precio">
+<input id="img" placeholder="Imagen">
+<select id="category">
+<option>FPS</option><option>Acción</option><option>Aventura</option>
+</select>
+<select id="status">
+<option value="disponible">Disponible</option>
+<option value="proximamente">Próximamente</option>
+</select>
+<input id="stock" placeholder="Stock">
+<button onclick="addProduct()">Agregar</button>
+</div>
+
+<div class="dashboard">
+<h4>Dashboard</h4>
+<p>Total juegos: <span id="total"></span></p>
+<p>Ventas: <span id="ventas"></span></p>
+</div>
+
+<div class="container" id="products"></div>
+
+<a class="whatsapp" onclick="sendWhatsApp()">💬</a>
+
+<script>
+let products=JSON.parse(localStorage.getItem('products'))||[
+{name:"CS2",price:5000,img:"https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg",category:"FPS",stock:5,status:"disponible"}
+];
+
+let cart=[];
+let ventas=0;
+
+function save(){localStorage.setItem('products',JSON.stringify(products));}
+
+function render(){
+const cont=document.getElementById('products');
+const search=document.getElementById('search').value.toLowerCase();
+const filter=document.getElementById('filter').value;
+cont.innerHTML="";
+
+products.filter(p=>p.name.toLowerCase().includes(search))
+.filter(p=>!filter||p.category===filter)
+.forEach((p,i)=>{
+cont.innerHTML+=`
+<div class="card">
+<img src="${p.img}">
+<h3>${p.name}</h3>
+<p>${p.category}</p>
+<p class="price">$${p.price}</p>
+<p>Stock: ${p.stock}</p>
+<span class="badge ${p.status==='disponible'?'disponible':'prox'}">${p.status}</span>
+<br><br>
+<button ${p.status!=='disponible'||p.stock<=0?'disabled':''} onclick="buy(${i})">Comprar</button>
+</div>`;
+});
+
+document.getElementById('total').innerText=products.length;
+document.getElementById('ventas').innerText=ventas;
+}
+
+function buy(i){
+if(products[i].stock>0){
+products[i].stock--;
+ventas++;
+cart.push(products[i]);
+document.getElementById('cart-count').innerText=cart.length;
+save();
+render();
+}
+}
+
+function addProduct(){
+products.push({
+name:name.value,
+price:parseInt(price.value),
+img:img.value,
+category:category.value,
+stock:parseInt(stock.value),
+status:status.value
+});
+save();
+render();
+}
+
+function sendWhatsApp(){
+let msg="Hola quiero comprar:%0A";
+cart.forEach(p=>msg+=`- ${p.name} ($${p.price})%0A`);
+window.open(`https://wa.me/1234567890?text=${msg}`);
+}
+
+function login(){
+let pass=prompt("Contraseña admin:");
+if(pass==="1234"){
+document.getElementById('adminPanel').style.display='block';
+}
+}
+
+render();
+</script>
+
+</body>
+</html>
