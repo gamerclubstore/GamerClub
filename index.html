@@ -6,13 +6,16 @@
   <meta name="description" id="meta-desc" content="Juegos a $4.000. Compra rápida y segura.">
   
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://zonasteamstore-gif.github.io/catalogo/catalogo.json">
-  <meta property="og:title" id="og-title" content="zonasteamstore — Catálogo Premium">
+  <meta property="og:url" content=""https://gamerclubstore.github.io/GamerClub/">
+  <meta property="og:title" content="GamerClub Store">
+  <meta property="og:description" content="Compra juegos digitales al mejor precio">
+  <meta property="og:image" content="URL-DE-UNA-IMAGEN">
+  <meta property="og:title" id="og-title" content="GamerClub — Catálogo Premium">
   <meta property="og:description" id="og-desc" content="Juegos a $4.000. Compra rápida y segura.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&amp;w=1200&amp;auto=format&amp;fit=crop"> 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" id="tw-title" content="zonasteamstore — Catálogo Premium">
+  <meta name="twitter:title" id="tw-title" content="GamerClub — Catálogo Premium">
   <meta name="twitter:description" id="tw-desc" content="Juegos a $4.000. Compra rápida y segura.">
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&amp;w=1200&amp;auto=format&amp;fit=crop">
 
@@ -332,7 +335,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="header-top">
     <div class="logo">
       <div class="logo-icon">🎮</div>
-      <h1>ZonaSteam</h1>
+      <h1>GamerClub</h1>
     </div>
     <button class="lang-btn" id="btn-lang" onclick="toggleLanguage()" aria-label="Cambiar idioma">🇺🇸 USD</button>
   </div>
@@ -1394,7 +1397,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 </div>
 
-<footer>ZonaSteam © 2026 — Catálogo Interactivo</footer>
+<footer>GamerClub © 2026 — Catálogo Interactivo</footer>
 
 <button id="scrollTop" title="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"></path></svg>
@@ -1406,9 +1409,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // =======================================================
   // CONFIGURACIÓN GLOBAL
   // =======================================================
-  const TU_USUARIO_IG = "zonasteam.store"; 
+  const TU_USUARIO_IG = "GamerClub.store"; 
   const TU_NUMERO_WA  = "5493816502549";
-  const CATALOGO_VERSION = '2.0'; 
+  const CATALOGO_VERSION = '1.0'; 
   const PAGE_SIZE = 60;
   const STEAM_IMG = id => `https://cdn.akamai.steamstatic.com/steam/apps/${id}/header.jpg`;
 
@@ -1428,7 +1431,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // =======================================================
   const dict = {
     es: {
-      seo_title: "ZonaSteam — Catálogo Premium",
+      seo_title: "GamerClub — Catálogo Premium",
       seo_desc: "Juegos a $4.000. Compra rápida y segura.",
       hero_banner: "🔥 1x $4.000 | 3x $8.000 | 10x $15.000",
       step1: "<b>1) Elige</b> tus juegos tocando las portadas.",
@@ -1484,7 +1487,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       cat_name_accion: "Acción", cat_name_historia: "Historia", cat_name_sin_categoria: "General"
     },
     en: {
-      seo_title: "ZonaSteam — Premium Catalog",
+      seo_title: "GamerClub — Premium Catalog",
       seo_desc: "Games at $4.00. Fast and secure.",
       hero_banner: "🔥 1x $4.00 | 3x $8.00 | 10x $15.00",
       step1: "<b>1) Choose</b> games.",
@@ -1582,12 +1585,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // 2. CARRITO Y CHECKOUT
   // =======================================================
   function cargarCarrito() {
-      const savedCart = localStorage.getItem('cart_zonasteam');
+      const savedCart = localStorage.getItem('cart_GamerClub');
       if (savedCart) { try { juegosSeleccionados = new Map(JSON.parse(savedCart)); } catch(e) {} }
   }
 
   function guardarCarrito() {
-      localStorage.setItem('cart_zonasteam', JSON.stringify(Array.from(juegosSeleccionados.entries())));
+      localStorage.setItem('cart_GamerClub', JSON.stringify(Array.from(juegosSeleccionados.entries())));
   }
 
   function obtenerMensajeUpsell(cantidad, lang, isModal = false) {
