@@ -133,3 +133,14 @@
   align-items: center !important;
   gap: 15px !important;
 }
+.logo img {
+  height: 65px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.logo img {
+  filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.8));
+}
