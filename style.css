@@ -75,3 +75,6 @@ body {
 div {
   background-color: transparent !important;
 }
+body {
+  background: black !important;
+}
