@@ -90,13 +90,14 @@
   width: 100%;
   font-size: 16px;
 }
-.top-bar {
+.hero-cro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-price-banner {
+  width: 100%;
   text-align: center;
 }
-.top-bar {
-  text-align: center;
-}.top-bar {
-  width: 100%;
-  text-align: center !important;
-  display: block !important;
 }
