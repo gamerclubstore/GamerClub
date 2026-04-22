@@ -101,10 +101,15 @@
     }
 
     body::before {
-      content: ''; position: fixed; inset: 0;
-      background: radial-gradient(circle 800px at 50% -20%, rgba(0, 119, 255, 0.15), transparent),
-                  radial-gradient(circle 600px at 90% 80%, rgba(0, 229, 255, 0.05), transparent);
-      pointer-events: none; z-index: -1;
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle 800px at 50% -20%, rgba(120, 0, 255, 0.15), transparent),
+    radial-gradient(circle 600px at 90% 80%, rgba(160, 0, 255, 0.08), transparent);
+  pointer-events: none;
+  z-index: -1;
+}
     }
 
     /* HEADER */
