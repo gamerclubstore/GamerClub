@@ -73,5 +73,10 @@
   border-radius: 10px;
 }
 .logo img {
-  height: 120px;
+  height: 110px;
+  width: auto;
+  object-fit: contain;
+}
+.logo img {
+  filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.9));
 }
