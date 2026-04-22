@@ -93,3 +93,10 @@
 .top-bar {
   text-align: center;
 }
+.top-bar {
+  text-align: center;
+}.top-bar {
+  width: 100%;
+  text-align: center !important;
+  display: block !important;
+}
