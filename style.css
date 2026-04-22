@@ -11,9 +11,10 @@
   gap: 12px;
 }
 
-.logo img {
-  width: 50px;
-  height: 50px;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .logo h1 {
@@ -24,8 +25,8 @@
 }
 .header-top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .header {
@@ -47,4 +48,8 @@
   cursor: pointer;
 }.logo img {
   filter: drop-shadow(0 0 8px rgba(162, 0, 255, 0.6));
+}
+.header-top {
+  max-width: 1200px;
+  margin: 0 auto;
 }
