@@ -262,3 +262,22 @@ html {
 }.usd-btn {
   margin-left: auto;
 }
+/* CONTENEDOR DEL CARRITO */
+.carrito {
+  max-height: 80vh; /* 👈 ocupa pantalla sin romper */
+  overflow-y: auto; /* 👈 permite scroll */
+}
+@media (max-width: 768px) {
+  .carrito {
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+.carrito-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+  .carrito {
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+}
