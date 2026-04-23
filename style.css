@@ -284,3 +284,20 @@ html {
 .carrito-item {
   width: 100%;
 }
+  .carrito-item button,
+.carrito-item svg {
+  position: relative !important;
+  width: auto !important;
+  height: auto !important;
+  pointer-events: auto !important;
+  z-index: 2 !important;
+}
+  .carrito-item * {
+  max-width: 100% !important;
+}
+  .carrito-item {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 10px;
+}
