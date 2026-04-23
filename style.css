@@ -293,3 +293,7 @@ html {
   flex: 1;
   min-width: 0;
 }
+.btn-trash:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 6px #a855f7);
+}
