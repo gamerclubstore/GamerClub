@@ -281,3 +281,6 @@ html {
   backdrop-filter: blur(20px);
   border-radius: 20px;
 }
+.carrito-item {
+  width: 100%;
+}
