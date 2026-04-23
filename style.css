@@ -256,3 +256,9 @@ html {
 .juego {
   transition: 0.3s;
 }
+.logo {
+  display: flex;
+  align-items: center;
+}.usd-btn {
+  margin-left: auto;
+}
