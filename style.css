@@ -318,3 +318,6 @@ html {
   height: auto !important;
   flex-shrink: 0 !important;
 }
+.carrito-item div {
+  position: static !important;
+}
