@@ -106,8 +106,8 @@
 .header-top {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* 👈 izquierda */
-  padding-left: 20px;
+  justify-content: space-between; /* 👈 CORRECTO */
+  padding: 0 20px;
 }
 .logo h1 {
   transition: 0.3s;
