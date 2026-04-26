@@ -1394,6 +1394,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="checkout-info">
         <div class="checkout-upsell" id="checkout-text"></div>
     </div>
+ <input 
+  type="text" 
+  id="nombreCliente" 
+  placeholder="Tu nombre..." 
+  style="padding:10px; border-radius:10px; border:none; width:100%; max-width:300px; margin:10px auto; display:block;"
+>
     <div class="checkout-actions">
         <button class="btn-cart" onclick="abrirCarrito()" aria-label="Ver carrito">
             <span data-i18n="btn_cart">🛒 Ver carrito</span> (<span id="cart-count">0</span>)
@@ -2024,6 +2030,126 @@ function enviarInstagram() {
   alert("Mensaje copiado 👌 Ahora pegalo en Instagram");
 
   window.open("https://www.instagram.com/direct/inbox/", "_blank");
+}
+  <script>
+function generarMensaje() {
+  let mensaje = "🛒 *Pedido GamerClub*\n\n";
+
+  juegosSeleccionados.forEach((nombre, appid) => {
+    mensaje += `🎮 ${nombre}\n🆔 ID: ${appid}\n\n`;
+  });
+
+  mensaje += "💬 Quedo a la espera de confirmación.\nGracias!";
+
+  return mensaje;
+}
+</script>
+ <script>
+function generarMensaje() {
+  let mensaje = "🛒 *Pedido GamerClub*\n\n";
+  let cantidad = juegosSeleccionados.size;
+
+  // LISTA DE JUEGOS
+  juegosSeleccionados.forEach((nombre) => {
+    mensaje += `🎮 ${nombre}\n`;
+  });
+
+  mensaje += "\n";
+
+  // CALCULAR TOTAL
+  let total = 0;
+  let promo = "";
+
+  if (cantidad >= 10) {
+    total = 25000;
+    promo = "🔥 Promo 10 juegos";
+  } else if (cantidad >= 3) {
+    total = 12000;
+    promo = "🔥 Promo 3 juegos";
+  } else {
+    total = cantidad * 5000;
+    promo = "Compra individual";
+  }
+
+  // CALCULAR AHORRO
+  let precioNormal = cantidad * 5000;
+  let ahorro = precioNormal - total;
+
+  // MENSAJE FINAL
+  mensaje += `💰 ${promo}\n`;
+  mensaje += `💵 Total: $${total}\n`;
+
+  if (ahorro > 0) {
+    mensaje += `💸 Ahorrás: $${ahorro}\n`;
+  }
+
+  mensaje += "\n💬 Quedo a la espera de confirmación.\nGracias!";
+
+  return mensaje;
+}
+</script>
+ <script>
+function generarNumeroPedido() {
+  const fecha = new Date();
+  const tiempo = fecha.getTime().toString().slice(-5);
+  const random = Math.floor(Math.random() * 100);
+  return `GC-${tiempo}${random}`;
+}
+
+function obtenerHora() {
+  const ahora = new Date();
+  return ahora.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
+function generarMensaje() {
+  let pedido = generarNumeroPedido();
+  let cantidad = juegosSeleccionados.size;
+
+  let nombre = document.getElementById("nombreCliente").value || "Sin nombre";
+
+  let mensaje = `🧾 *Pedido GamerClub*\n`;
+  mensaje += `📦 Pedido: #${pedido}\n`;
+  mensaje += `👤 Cliente: ${nombre}\n`;
+  mensaje += `🕒 Hora: ${obtenerHora()}\n`;
+  mensaje += `💳 Pago: Transferencia\n\n`;
+
+  // LISTA DE JUEGOS
+  juegosSeleccionados.forEach((nombreJuego) => {
+    mensaje += `🎮 ${nombreJuego}\n`;
+  });
+
+  mensaje += "\n";
+
+  // PROMOS
+  let total = 0;
+  let promo = "";
+
+  if (cantidad >= 10) {
+    total = 25000;
+    promo = "🔥 Promo 10 juegos";
+  } else if (cantidad >= 3) {
+    total = 12000;
+    promo = "🔥 Promo 3 juegos";
+  } else {
+    total = cantidad * 5000;
+    promo = "Compra individual";
+  }
+
+  let precioNormal = cantidad * 5000;
+  let ahorro = precioNormal - total;
+
+  // RESUMEN
+  mensaje += `📊 Cantidad: ${cantidad}\n`;
+  mensaje += `💰 ${promo}\n`;
+  mensaje += `💵 Total: $${total}\n`;
+
+  if (ahorro > 0) {
+    mensaje += `💸 Ahorrás: $${ahorro}\n`;
+  }
+
+  mensaje += "\n💬 Quedo a la espera de confirmación.\nGracias!";
+
+  return mensaje;
 }
 </script>
 </body></html>
